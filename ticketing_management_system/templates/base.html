@@ -25,8 +25,12 @@
                 </div>
                 <ul class="md:flex space-x-6 text-gray-700 font-medium">
                     <li><a href="{% url 'home' %}" class="hover:text-blue-500 transition-colors">Home</a></li>
-                    <li><a href="{% url 'manage_staff' %}" class="hover:text-blue-500 transition-colors">Manage Staff</a></li>
-                    <li><a href="{% url 'manage_tickets' %}" class="hover:text-blue-500 transition-colors">Manage Tickets</a></li>
+                    {% if user.role == 'admin' %}
+                    <li><a href="{% url 'manage_staff' %}" class="hover:text-blue-500 transition-colors">Manage Staff</a></li>   
+                    <li><a href="{% url 'manage_tickets' status='All' %}" class="hover:text-blue-500 transition-colors">Manage Tickets</a></li>
+                    {%else%}
+                    <li><a href="{% url 'manage_tickets' status='Ongoing' %}" class="hover:text-blue-500 transition-colors">Ongoing Tickets</a></li>
+                    {% endif %}
                 </ul>
                 <div class="md:flex items-center space-x-4">
                     {% if user.is_authenticated %}

@@ -9,32 +9,32 @@
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-8">
-        <a href="/" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
+        <a href="{% url 'manage_tickets' status='All' %}" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
             <div class="flex gap-2 items-center">
-                <span class="font-bold text-4xl">20</span>
+                <span class="font-bold text-4xl">{{total_tickets}}</span>
             </div>
-            <span class="font-semibold opacity-70 text-sm text-center">Documents Contributed</span>
+            <span class="font-semibold opacity-70 text-sm text-center">Total Tickets</span>
         </a>
 
-        <a href="/" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
+        <a href="{% url 'manage_tickets' status='Ongoing' %}" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
             <div class="flex gap-2 items-center">
-                <span class="font-bold text-4xl">20</span>
+                <span class="font-bold text-4xl">{{ongoing_tickets}}</span>
             </div>
-            <span class="font-semibold opacity-70 text-sm text-center">Documents Contributed</span>
+            <span class="font-semibold opacity-70 text-sm text-center">Ongoing Tickets</span>
         </a>
 
-        <a href="/" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
+        <a href="{% url 'manage_tickets' status='Completed' %}" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
             <div class="flex gap-2 items-center">
-                <span class="font-bold text-4xl">20</span>
+                <span class="font-bold text-4xl">{{complated_tickets}}</span>
             </div>
-            <span class="font-semibold opacity-70 text-sm text-center">Documents Contributed</span>
+            <span class="font-semibold opacity-70 text-sm text-center">Completed Tickets</span>
         </a>
 
-        <a href="/" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
+        <a href="{% url 'manage_tickets' status='archived_tickets' %}" class="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
             <div class="flex gap-2 items-center">
-                <span class="font-bold text-4xl">20</span>
+                <span class="font-bold text-4xl">{{archived_tickets}}</span>
             </div>
-            <span class="font-semibold opacity-70 text-sm text-center">Documents Contributed</span>
+            <span class="font-semibold opacity-70 text-sm text-center">Archived Tickets</span>
         </a>
     </div>
 

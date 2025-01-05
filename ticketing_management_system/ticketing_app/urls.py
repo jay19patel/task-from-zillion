@@ -10,8 +10,9 @@ urlpatterns = [
     path('registration/', RegisterView.as_view(), name='registration'),
     path('', HomeView.as_view(), name='home'),
     path('manage_staff/', ManageStaff.as_view(), name='manage_staff'),
-    path('manage_tickets/', ManageTickets.as_view(), name='manage_tickets'),
+    path('manage_tickets/<str:status>/', ManageTickets.as_view(), name='manage_tickets'),
     path('create_tickets/', CreateTickets.as_view(), name='create_tickets'),
     path('view_ticket/<str:pk>/', ViewTickets.as_view(), name='view_ticket'),
     path('delete_ticket/<str:pk>/', DeleteTicket.as_view(), name='delete_ticket'),
+    path('solve_ticket/<str:pk>/', SolveTicket.as_view(), name='solve_ticket'),
 ]
