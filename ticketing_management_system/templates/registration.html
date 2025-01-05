@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Create Staff Member{% endblock %}
+
+{% block content %}
+<div class="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-green-500">Create Staff Member</h1>
+        </div>
+
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="p-4 mb-4 rounded-lg text-white
+                    {% if message.tags == 'success' %}bg-green-500
+                    {% elif message.tags == 'error' %}bg-red-500
+                    {% else %}bg-gray-500{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-6">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" name="username" id="username" class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none" required>
+            </div>
+
+            <div class="mb-6">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" id="email" class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none" required>
+            </div>
+
+             <div class="mb-6">
+                <label for="decription" class="block text-sm font-medium text-gray-700">Decription</label>
+                <input type="text" name="decription" id="decription" class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none" required>
+            </div>
+
+            <button type="submit" class="bg-green-500 text-white p-3 w-full rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

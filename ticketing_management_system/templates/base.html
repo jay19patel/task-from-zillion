@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website showcasing the work of Jay Patel.">
+    <meta name="keywords" content="Jay Patel, portfolio, web developer, projects">
+    <meta name="author" content="Jay Patel">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <title>{% block title %}Jay Patel{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-semibold">
+                    <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-500 font-extrabold text-3xl">TMS</a>
+                </div>
+                <ul class="md:flex space-x-6 text-gray-700 font-medium">
+                    <li><a href="{% url 'home' %}" class="hover:text-blue-500 transition-colors">Home</a></li>
+                    <li><a href="{% url 'manage_staff' %}" class="hover:text-blue-500 transition-colors">Manage Staff</a></li>
+                    <li><a href="{% url 'manage_tickets' %}" class="hover:text-blue-500 transition-colors">Manage Tickets</a></li>
+                </ul>
+                <div class="md:flex items-center space-x-4">
+                    {% if user.is_authenticated %}
+                        <span class="text-gray-800 font-semibold">
+                        Welcome, {{ user.username }}   
+                        <span class="inline-block bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                            {{user.role}}
+                        </span>
+
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="text-red-500 hover:text-red-700 transition-colors">Logout</button>
+                        </form>
+
+                        </span>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="text-gray-700 hover:text-blue-500 transition-colors">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="p-4 mb-4 rounded-lg text-white
+                    {% if message.tags == 'success' %}bg-green-500
+                    {% elif message.tags == 'error' %}bg-red-500
+                    {% else %}bg-gray-500{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    <!-- Main Content -->
+    <main class="flex-grow p-5 md:p-10 pt-16 overflow-auto">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <div class="bg-white backdrop-blur-xl shadow-md text-center p-8">
+        <span class="block text-sm text-center text-gray-500">© 2024 Built with Jay Patel</span>
+    </div>
+
+</body>
+
+</html>
