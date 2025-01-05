@@ -37,3 +37,14 @@ python manage.py runserver
 '''
 
 ## Sorry, I couldn't complete some parts, like the static page for images and a few small details, due to time limits. I tried my best to finish within the time I had.
+
+
+
+![login-page](https://github.com/user-attachments/assets/61c0fcd6-e8c5-4165-86a3-b4d1c7fec4dd)
+![dashbord-for-admin](https://github.com/user-attachments/assets/375bc39a-0bef-4f85-87dc-e682a10f9872)
+
+![create-ticket](https://github.com/user-attachments/assets/888da1a3-5aad-443f-a69f-26619d181f3f)
+![delete-ticket](https://github.com/user-attachments/assets/a9039f47-4a35-4405-a63d-7e206f94948f)
+
+![view-ticket](https://github.com/user-attachments/assets/3c79b7ae-e7d2-41aa-a4d1-d929d4ebc29f)
+![response from staff](https://github.com/user-attachments/assets/eee384cf-9ef1-45bb-b7ca-87ab9c5c0620)
